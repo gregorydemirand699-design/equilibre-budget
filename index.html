@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111111">
+<meta name="description" content="ÉQUILIBRE : un kit numérique simple pour organiser son budget, anticiper ses factures et suivre ses objectifs d’épargne.">
+<title>ÉQUILIBRE — Votre budget, plus clair</title>
+<style>
+:root{--ink:#111;--gold:#b99550;--paper:#f8f6f1;--muted:#656565;--line:#e5dfd3}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:#111;color:white;display:flex;align-items:center;justify-content:space-between;padding:18px max(22px,calc((100vw - 1120px)/2));border-bottom:1px solid #39352d}
+.brand{font-size:14px;letter-spacing:.23em;font-weight:900}.brand span{color:var(--gold)}.tagline{font-size:10px;letter-spacing:.13em;color:#d3d0c8}
+main{max-width:1120px;margin:auto;padding:32px 22px 60px}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;min-height:490px}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.17em;color:#8b6b30;font-weight:850}
+h1{font-size:clamp(40px,6vw,68px);line-height:.98;letter-spacing:-.055em;margin:18px 0 20px}h1 em{font-style:normal;color:#a27d39}
+.lead{font-size:17px;line-height:1.7;color:#505050;max-width:510px}
+.price-line{display:flex;align-items:baseline;gap:10px;margin:25px 0 3px}.price{font-size:39px;font-weight:900;letter-spacing:-.04em}.vat{font-size:12px;color:#555}.once{font-size:12px;color:#666;margin-bottom:17px}
+.actions{display:grid;gap:10px;max-width:430px}.btn{border-radius:9px;padding:16px 18px;font-size:15px;font-weight:800;text-align:center;text-decoration:none;display:block;border:1px solid transparent;cursor:pointer}
+.btn-dark{background:#111;color:white}.btn-dark:hover{background:#292929}.btn-light{background:white;color:#111;border-color:#d9d5cd}.btn-light:hover{border-color:var(--gold)}
+.micro{font-size:11px;line-height:1.55;color:#747474;max-width:430px;margin-top:12px}
+.visual{background:#151515;min-height:410px;border-radius:18px;display:grid;place-items:center;position:relative;overflow:hidden;box-shadow:0 22px 55px #0002}
+.visual:before,.visual:after{content:"";position:absolute;border:1px solid #c4a25d55;border-radius:50%}.visual:before{width:330px;height:330px;right:-115px;top:-100px}.visual:after{width:230px;height:230px;left:-100px;bottom:-85px}
+.badge{position:absolute;top:20px;left:20px;color:#f3d9a4;border:1px solid #b9955077;border-radius:100px;padding:7px 12px;font-size:9px;letter-spacing:.14em;z-index:2}
+.cover{width:66%;min-height:300px;background:#f7f4ec;padding:25px;position:relative;z-index:1;box-shadow:11px 13px 0 var(--gold);transform:rotate(-2deg)}
+.cover .small{font-size:9px;font-weight:850;letter-spacing:.16em;color:#8b6b30}.cover h2{font-size:clamp(29px,4vw,42px);line-height:.98;letter-spacing:-.05em;margin:45px 0 13px}.goldbar{height:2px;width:46px;background:var(--gold)}.cover p{font-size:11px;line-height:1.55;color:#555}.cover .foot{position:absolute;bottom:22px;font-size:8px;letter-spacing:.13em;color:#666}
+.trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:17px;font-size:11px;color:#555}.trust span:before{content:"✓";color:#987436;font-weight:900;margin-right:6px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:28px}.feature{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}.number{font-size:10px;color:#a17c37;letter-spacing:.13em;font-weight:900}.feature h3{font-size:16px;margin:9px 0}.feature p{font-size:13px;line-height:1.6;color:#656565;margin:0}
+section.details{margin-top:55px;padding-top:30px;border-top:1px solid var(--line)}.section-head{max-width:650px;margin-bottom:20px}.section-head h2{font-size:30px;letter-spacing:-.04em;margin:0 0 10px}.section-head p{color:#626262;line-height:1.6}
+.contents{display:grid;grid-template-columns:1fr 1fr;gap:10px}.content{background:#fff;border:1px solid var(--line);border-radius:10px;padding:15px;font-size:13px}.content b{color:#967131;margin-right:9px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.step{padding:19px;border-left:2px solid var(--gold);background:#f0ede5}.step b{display:block;margin-bottom:8px}.step p{font-size:13px;line-height:1.6;color:#666;margin:0}
+.faq details{border-bottom:1px solid var(--line);padding:15px 0}.faq summary{font-weight:750;cursor:pointer}.faq p{color:#626262;line-height:1.65;font-size:13px;max-width:760px}
+footer{background:#111;color:#ddd;padding:28px max(22px,calc((100vw - 1120px)/2));font-size:11px;line-height:1.8}footer a{color:#f0d8a5}
+.notice{background:#fff5df;border:1px solid #e5cf9d;padding:13px;border-radius:9px;font-size:12px;line-height:1.6;margin-top:15px}
+@media(max-width:760px){header{padding:17px 19px}.tagline{max-width:125px;text-align:right;line-height:1.5}.hero{grid-template-columns:1fr;gap:23px}.visual{order:-1;min-height:340px}.cover{min-height:270px;width:72%}.features,.steps{grid-template-columns:1fr}.contents{grid-template-columns:1fr}main{padding:22px 17px 45px}.hero{min-height:0}.price{font-size:36px}}
+</style></head>
+<body>
+<header><div class="brand">ÉQUILIBRE<span>.</span></div><div class="tagline">DES OUTILS SIMPLES<br>POUR Y VOIR PLUS CLAIR</div></header>
+<main>
+<section class="hero">
+<div>
+<div class="kicker">Le kit numérique d'organisation du budget</div>
+<h1>Votre budget.<br><em>Plus clair.</em></h1>
+<p class="lead">Un kit pratique pour mettre vos dépenses à plat, anticiper les factures à venir et suivre vos projets à votre rythme — sans application compliquée ni abonnement.</p>
+<div class="price-line"><div class="price">7,90 €</div><span class="vat">TTC · paiement unique</span></div>
+<div class="once">Vous le gardez. Vous le réutilisez chaque mois.</div>
+<div class="actions">
+<a class="btn btn-dark" href="#contenu">Découvrir le contenu du kit</a>
+<a class="btn btn-light" href="#achat">Acheter le kit</a>
+</div>
+<div class="trust"><span>Format PDF</span><span>À imprimer ou annoter</span><span>Sans abonnement</span></div>
+<div class="notice"><b>Avant la mise en vente :</b> le bouton d'achat sera relié à une page de paiement sécurisée. Apple Pay apparaîtra si le prestataire et l'appareil le permettent.</div>
+</div>
+<div class="visual"><div class="badge">COLLECTION ESSENTIELLE</div><div class="cover"><div class="small">ÉQUILIBRE / 01</div><h2>MON<br>BUDGET<br>MAÎTRISÉ</h2><div class="goldbar"></div><p>Un guide pratique pour organiser son mois, ses factures et ses projets.</p><div class="foot">BUDGET · FACTURES · ÉPARGNE</div></div></div>
+</section>
+<section class="features">
+<div class="feature"><div class="number">01 / CLARTÉ</div><h3>Voir où va l'argent</h3><p>Regroupez les revenus et les dépenses au même endroit, avec des pages faciles à reprendre chaque mois.</p></div>
+<div class="feature"><div class="number">02 / ANTICIPATION</div><h3>Préparer les prochaines échéances</h3><p>Visualisez les prélèvements à venir et les dépenses irrégulières pour limiter les mauvaises surprises.</p></div>
+<div class="feature"><div class="number">03 / PROGRESSION</div><h3>Avancer à son rythme</h3><p>Suivez vos projets et votre épargne sans objectif imposé ni jugement sur les semaines difficiles.</p></div>
+</section>
+<section class="details" id="contenu"><div class="section-head"><h2>Tout le nécessaire, sans superflu.</h2><p>Le kit est conçu pour rester simple : quelques pages structurées, réutilisables et faciles à remplir.</p></div>
+<div class="contents">
+<div class="content"><b>✓</b> Guide de démarrage et méthode de prise en main</div>
+<div class="content"><b>✓</b> Photographie du budget mensuel</div>
+<div class="content"><b>✓</b> Suivi des charges fixes et dépenses variables</div>
+<div class="content"><b>✓</b> Calendrier des prélèvements et échéances</div>
+<div class="content"><b>✓</b> Rituel hebdomadaire « 7/21 » pour anticiper les 21 prochains jours</div>
+<div class="content"><b>✓</b> Objectifs d'épargne et suivi de progression</div>
+<div class="content"><b>✓</b> Suivi des remboursements et décisions d'achat</div>
+<div class="content"><b>✓</b> Pages réutilisables sans date préremplie</div>
+</div></section>
+<section class="details"><div class="section-head"><h2>Comment ça marche ?</h2><p>Pas de logiciel spécifique requis pour consulter les PDF.</p></div><div class="steps">
+<div class="step"><b>1. Recevez vos fichiers</b><p>Après paiement, le prestataire enverra le lien de téléchargement du pack PDF.</p></div>
+<div class="step"><b>2. Choisissez votre format</b><p>Imprimez les pages ou annotez-les avec une application PDF compatible sur téléphone ou tablette.</p></div>
+<div class="step"><b>3. Reprenez le rituel</b><p>Quelques minutes chaque semaine pour mettre à jour les dépenses et regarder les prochaines échéances.</p></div>
+</div></section>
+<section class="details faq"><div class="section-head"><h2>Questions fréquentes</h2></div>
+<details><summary>Est-ce un abonnement ?</summary><p>Non. Le prix affiché est prévu pour un achat unique, sans renouvellement automatique.</p></details>
+<details><summary>Est-ce une application bancaire ?</summary><p>Non. C'est un ensemble de documents PDF. Il ne se connecte pas à votre banque et ne récupère aucune donnée financière.</p></details>
+<details><summary>Le kit garantit-il des économies ?</summary><p>Non. Il aide à organiser les informations et les échéances, mais les résultats dépendent de votre situation et de son utilisation.</p></details>
+<details><summary>Comment recevrai-je le produit ?</summary><p>Le téléchargement automatique sera activé après la configuration du service de paiement et de livraison numérique.</p></details>
+</section>
+<section class="details" id="achat"><div class="section-head"><h2>Prêt à clarifier votre budget ?</h2><p>Kit numérique ÉQUILIBRE — collection essentielle.</p><div class="price-line"><div class="price">7,90 €</div><span class="vat">TTC · paiement unique prévu</span></div><p class="notice">Le paiement réel n'est pas encore connecté. Cette page est une maquette de lancement et ne doit pas être présentée comme une boutique active avant configuration.</p></div></section>
+</main>
+<footer>ÉQUILIBRE · Kit d'organisation personnelle<br>Contenu informatif, sans conseil financier personnalisé ni promesse d'économie. Avant commercialisation, compléter les informations légales du vendeur, les conditions générales de vente, la politique de confidentialité et les modalités applicables aux contenus numériques.<br><br><a href="#contenu">Voir le contenu</a> · <a href="#achat">Informations d'achat</a></footer>
+</body></html>
